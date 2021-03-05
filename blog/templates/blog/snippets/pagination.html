@@ -1,0 +1,11 @@
+<div class="text-xs-center">
+  <ul class="pagination">
+    {% if page.has_previous %}
+      <li><a href="?page={{ page.previous_page_number }}"><</a></li>
+    {% endif %}
+    <li>{{ page.number }}/{{ page.paginator.num_pages }}</li>
+    {% if page.has_next %}
+      <li><a href="?page={{ page.next_page_number }}">></a></li>
+    {% endif %}
+  </ul>
+</div>

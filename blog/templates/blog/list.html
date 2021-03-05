@@ -1,0 +1,29 @@
+{% extends 'base/snippets/common.html' %}
+{% load static %}
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+{% block title %}My Blog{% endblock %}
+  {% block content %}
+  <section id="blog" class="blog">
+      <div class='section-title'>
+        <br><h2>My Blog</h2>
+      </div>
+      <div>
+        <div class='row'>
+          {% for post in posts %}
+            {% include "blog/snippets/post.html" with post=post %}
+          {% endfor %}
+          <div class='col'>
+            <h2>Subscribe to my blog:</h2>
+            {% include "blog/snippets/emailform.html" with form=form %}
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col ml-3'>
+            {% include "blog/snippets/pagination.html" with page=posts %}
+          </div>
+        </div>
+      <div>
+  </section>
+{% endblock %}

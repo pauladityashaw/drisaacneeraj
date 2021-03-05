@@ -1,0 +1,95 @@
+{% extends 'base/snippets/common.html' %}
+
+{% block title %}
+  Home - DrIsaacNeerajShaw
+{% endblock title %}
+
+{% block content %}
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Dr. Isaac Neeraj Shaw</h1>
+      <h3>Professional Dertamtologist from Hazaribagh, Jharkhand.</h3>
+      <div>
+        <a href="{% url 'about' %}" class="btn-about">About Me</a>
+        <a href="{% url 'contact' %}" class="btn-about">Contact Me</a>
+      </div>
+    </div>
+  </section>
+  <div class="section-title">
+        <h2>Book an Appointment</h2>
+        <table cellspacing="0" align="center"> 
+        <!--<caption>Timetable</caption>-->
+        <tr> 
+            <td align="center" height="50" 
+                width="100"><br> 
+                <b>Day</b></br> 
+            </td> 
+            <td align="center" height="50" 
+                width="100"> 
+                <b>1st Half<br>09:00-02:00</b> 
+            </td> 
+            <td align="center" height="50" 
+                width="100"> 
+                <b>BREAK</b> 
+            </td>
+            <td align="center" height="50" 
+                width="100"> 
+                <b>2nd Half<br>03:00-08:00</b> 
+            </td>
+        </tr>
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Monday</b></td> 
+            <td align="center" height="50">-</td> 
+            <td rowspan="7" align="center" height="50"> 
+                <h2>L<br>U<br>N<br>C<br>H</h2> 
+            </td> 
+            <td colspan="3" align="center" 
+                height="50">-</td>
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Tuesday</b> 
+            </td> 
+            <td align="center" height="50">-</td>
+            <td align="center" height="50">-</td>
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Wednesday</b> 
+            </td> 
+            <td align="center" height="50">-</td> 
+            <td align="center" height="50">-</td>
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Thursday</b> 
+            </td> 
+            <td align="center" height="50">-</td> 
+            <td align="center" height="50">-</td> 
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Friday</b> 
+            </td>
+            <td align="center" height="50">-</td>
+            <td align="center" height="50">-</td> 
+        </tr> 
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Saturday</b> 
+            </td> 
+            <td align="center" height="50">-</td>
+            <td align="center" height="50">-</td>
+        </tr>
+        <tr> 
+            <td align="center" height="50"> 
+                <b>Sunday</b> 
+            </td> 
+            <td align="center" height="50">-</td>
+            <td align="center" height="50">-(till 4pm)</td>
+        </tr> 
+    </table>
+  </div>
+{% endblock content %}
+
