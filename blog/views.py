@@ -1,18 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 
-from .models import Post, Subscriber
+from .models import Post
 # Create your views here.
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
-from .forms import SearchForm, EmailPostForm
+from .forms import SearchForm
 
 import random
-
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
 
 from django.db import IntegrityError
 
@@ -32,8 +29,7 @@ def post_list(request):
     return render(request,
                   'blog/list.html',
                    {'page': page,
-                    'posts': posts,
-                    'form':form})
+                    'posts': posts})
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month, publish__day=day)
@@ -58,29 +54,3 @@ def post_search(request):
 
 def random_digits():
     return "%0.12d" % random.randint(0, 999999999999)
-
-def new_email(request):
-    if request.method == 'POST':
-        form = EmailPostForm(request.POST)
-        if form.is_valid():
-            try:
-                new_sub = form.cleaned_data
-                sub = Subscriber(email=new_sub['email'], conf_num = random_digits())
-                sub.save()
-                # message = Mail(
-                # from_email=settings.FROM_EMAIL,
-                # to_emails=sub.email,
-                # subject='Blog Confirmation',
-                # html_content='Thank you for signing up for my Blog ! \
-                #     Please complete the process by \
-                #     <a href="{}/confirm/?email={}&conf_num={}"> clicking here to \
-                #     confirm your registration</a>.'.format(request.build_absolute_uri('/confirm/'),
-                #                                         sub.email,
-                #                                         sub.conf_num))
-                # sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
-                # response = sg.send(message)
-                # print(response)
-                message = "Confirmation Message sent to your email :)"
-            except IntegrityError:
-                message = "You are already subscribed :)"
-            return render(request, 'blog/validate.html', {'message':message})

@@ -133,7 +133,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MAILCHIMP_API_KEY = 'da8f731415f6ca3dcddafa235ef4e11d-us1'
 MAILCHIMP_DATA_CENTER = 'us1'
-MAILCHIMP_EMAIL_LIST_ID = ''
+MAILCHIMP_EMAIL_AUDIENCE_ID = '8c17daa38a'
 
 
 django_heroku.settings(locals())
