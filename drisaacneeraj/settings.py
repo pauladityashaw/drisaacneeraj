@@ -131,8 +131,9 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-FROM_EMAIL = 'pauladityashaw@gmail.com' # replace with your address
-SENDGRID_API_KEY = ('SENDGRID_API_KEY')
+MAILCHIMP_API_KEY = 'da8f731415f6ca3dcddafa235ef4e11d-us1'
+MAILCHIMP_DATA_CENTER = 'us1'
+MAILCHIMP_EMAIL_LIST_ID = ''
 
 
 django_heroku.settings(locals())
